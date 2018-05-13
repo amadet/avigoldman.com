@@ -1,0 +1,3 @@
+[build]
+  publish = "public/"
+  command = "cd plugins/gatsby-transformer-mdx && npm i && cd ../..  && gatsby build"

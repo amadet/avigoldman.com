@@ -53,7 +53,7 @@ injectGlobal`
   }
 
   p {
-    margin: 0 0 .5rem 0;
+    margin: 0 0 1rem 0;
   }
 
   a {

@@ -16,6 +16,7 @@ const Content = styled.main`
 
   > div > * {
     max-width: 44rem;
+    width: 96%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -83,28 +84,31 @@ const Content = styled.main`
 
     code {
       font: inherit;
-
-      &:before, &:after { display: none; }
+      border: none;
+      background: transparent;
+      padding: 0;
+      white-space: inherit;
     }
   }
 
   code {
+    white-space: nowrap
     font-family: Menlo, monospace;
-    font-size: .86em;
-    color: #42b57a;
-
-    &:before, &:after {
-      content: "\`";
-      margin: 0 .1rem;
-    }
+    font-size: .78em;
+    border: 1px solid rgba(123, 123, 123, 0.4);
+    padding: 0.15rem .35rem;
+    border-radius: 3px;
+    background: #fcfcfc;
   }
 
   hr {
-    margin: 3rem auto;
-    width: 4rem;
     border: 0;
-    border-bottom: .65rem solid #41b579;
-    transform: skewY(30deg) rotateZ(-25deg);
+    border-radius: 50%;
+    background: #9697A3;
+    display: block;
+    height: 5px;
+    width: 5px;
+    box-shadow: -20px 0 0 #9697a3, 20px 0 0 #9697a3;
   }
 `
 
@@ -160,7 +164,7 @@ const Post = ({ children, ...props }) => (
         <meta name="description" content={props.data.mdx.frontmatter.description} />
         <meta name="og:type" content="article" />
         <meta name="og:title" content={props.data.mdx.frontmatter.title} />
-        <meta name="og:image" content={props.data.mdx.frontmatter.image || `${props.data.mdx.frontmatter.title}.png`} />
+        <meta name="og:image" content={props.data.mdx.frontmatter.image || `http://res.cloudinary.com/avi-goldman/image/upload/w_1200,c_fit,co_black,l_text:Arial_60_center:${encodeURIComponent(props.data.mdx.frontmatter.title.replace(',', '%2C'))}/v1522023351/share.png`} />
         <meta name="og:description" content={props.data.mdx.frontmatter.description} />
         <meta name="article:author" content="Avi Goldman" />
         <meta name="article:published_time" content={new Date(props.data.mdx.frontmatter.date).toISOString()} />
@@ -188,14 +192,14 @@ const Post = ({ children, ...props }) => (
 )
 
 export const pageQuery = graphql`
-  query Post($name: String!) {
+  query Post($relativeDirectory: String!) {
     site {
       siteMetadata {
         author
         description
       }
     }
-    mdx(name:{eq:$name}) {
+    mdx(relativeDirectory:{eq:$relativeDirectory}) {
       readTime {
         text
       }

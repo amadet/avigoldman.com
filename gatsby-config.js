@@ -1,9 +1,10 @@
 module.exports = {
   siteMetadata: {
     author: 'Avi Goldman',
-    description: `I'm a Developer Advocate over at SparkPost. I spend my time <a href="/blog">thinking</a> about email and how to <a href="https://github.com/avigoldman">improve</a> it. Follow me on <a href="https://twitter.com/theavigoldman">Twitter</a> and lets get coffee in SF.`
+    description: `I'm a Developer Advocate over at SparkPost. I spend my time <a href="/blog">thinking</a> about email and how to <a href="https://github.com/avigoldman">improve</a> it. Reach me on <a href="https://twitter.com/theavigoldman">Twitter</a> and lets get coffee.`
   },
   plugins: [
+    'gatsby-plugin-react-next',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     {

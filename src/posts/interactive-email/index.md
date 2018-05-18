@@ -36,7 +36,7 @@ Let's build a simple example with a button that shows and hides some text.
 ### Review
 
 
-We successfully made an simple interactive email with a safe fallback! You can take this concept and build some really awesome stuff. With some CSS animations you could make this into a scratch off promotion, make a simple accordion, or even a hamburger menu.
+We successfully made an simple interactive email with a safe fallback! You can take this concept and build some really awesome stuff. With some CSS animations you could make this into a scratch off promotion, a simple accordion, or even a hamburger menu.
 
 
 Have suggestions or corrections? Let me know at <a href="https://twitter.com/theavigoldman">@theavigoldman</a>.

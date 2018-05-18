@@ -15,7 +15,7 @@ export default BlogPage
 
 export const pageQuery = graphql`
   query BlogPage {
-    allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMdx(sort: {order: DESC, fields: [frontmatter___date]}, filter: {frontmatter: {draft: {ne: true}}}) {
       edges {
         node {
           ...mdx

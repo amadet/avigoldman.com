@@ -67,7 +67,7 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMdx(limit:3, sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMdx(limit: 3, sort: {order: DESC, fields: [frontmatter___date]}, filter: {frontmatter: {draft: {ne: true}}}) {
       edges {
         node {
           ...mdx

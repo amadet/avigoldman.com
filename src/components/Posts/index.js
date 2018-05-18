@@ -5,7 +5,7 @@ export default ({ allMdx }) => (
   <div>
     {allMdx.edges
       .map(({ node: { frontmatter, relativeDirectory } }) => (
-      <Post key={relativeDirectory} path={`blog/${relativeDirectory}`} {...frontmatter} />
+      <Post key={relativeDirectory} path={`/blog/${relativeDirectory}`} {...frontmatter} />
     ))}
   </div>
 )

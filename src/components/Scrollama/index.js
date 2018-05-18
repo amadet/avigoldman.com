@@ -1,7 +1,10 @@
 import React from 'react'
-import 'intersection-observer'
 import scrollama from 'scrollama'
 import compact from 'lodash.compact'
+
+if (typeof window !== 'undefined') {
+  require('intersection-observer')
+}
 
 const containerName = 'scroll'
 const stepName = 'step'
@@ -60,7 +63,6 @@ export default class Scrollama extends React.Component {
       this.setState({ direction, lastActiveIndex: index, index, active: true })
     })
     .onStepExit(({ direction, index }) => {
-      console.log(direction, index, this.totalIndex)
       if (index === 0 && direction === 'up') {
         this.setState({ direction, index: false, active: false })
       }

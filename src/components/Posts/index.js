@@ -3,15 +3,16 @@ import Post from '../Post'
 
 export default ({ allMdx }) => (
   <div>
-    {allMdx.edges.map(({ node: { frontmatter, name } }) => (
-      <Post key={name} path={`blog/${name}`} {...frontmatter} />
+    {allMdx.edges
+      .map(({ node: { frontmatter, relativeDirectory } }) => (
+      <Post key={relativeDirectory} path={`blog/${relativeDirectory}`} {...frontmatter} />
     ))}
   </div>
 )
 
 export const fragment = graphql`
   fragment mdx on Mdx {
-    name
+    relativeDirectory
     frontmatter {
       title
       date(formatString: "MMMM D, YYYY")

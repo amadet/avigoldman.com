@@ -9,7 +9,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       allMdx {
         edges {
           node {
-            name
+            relativeDirectory
             absolutePath
             frontmatter {
               title
@@ -28,17 +28,17 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
       // Create blog post pages.
       result.data.allMdx.edges.forEach(({ node }) => {
-        const { absolutePath, name, frontmatter } = node
+        const { absolutePath, relativeDirectory, frontmatter } = node
         const id = Math.random() + ''
 
         createLayout({
           component: resolvePath('./src/templates/post.js'),
           id,
-          context: { name }
+          context: { relativeDirectory }
         })
         
         createPage({
-          path: `blog/${name}`,
+          path: `blog/${relativeDirectory}`,
           layout: id,
           component: absolutePath
         })
